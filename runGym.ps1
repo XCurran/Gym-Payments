@@ -79,7 +79,7 @@ $file = "$dir\bill.txt"
 # Get file content
 $content = Get-Content -Path $file
 
-# You can modIfy the list of months and people here
+# You can modify the list of months and people here
 $ListofMonths = @("", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
 $user = @("", "Javan", "Sunjer", "Kras", "Chow")
 
@@ -128,8 +128,8 @@ While($loop){
     {
         $name = Get-UserID
         $payment = Get-PaymentAmount 
-        $confirm =  Read-Host "Confirm payment: $($user[$name]) -> `$$payment || (Y)es, or press any other key to cancel."
-        If($confirm -ieq "y")
+        $confirm =  Read-Host "Confirm payment: $($user[$name]) -> `$$payment || Press enter to confirm, or press any other key to cancel."
+        If($confirm -eq "")
         {
             Set-Backup -username $user[$name] -payment $payment
             $location = ((($name - 1) * 5) + 3)
